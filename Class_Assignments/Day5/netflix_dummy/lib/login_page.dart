@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:netflix_dummy/learn_more.dart';
 import 'package:netflix_dummy/netflix.dart';
 import 'sign_up.dart';
 
@@ -15,6 +16,12 @@ class _LoginState extends State<Login> {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
+        actions: [
+          Icon(
+            Icons.account_circle,
+            color: Colors.white54,
+          )
+        ],
         backgroundColor: Colors.black,
         title: const Text(
           "Netflix",
@@ -34,6 +41,8 @@ class _LoginState extends State<Login> {
                 padding: EdgeInsets.all(10),
                 child: TextField(
                   decoration: InputDecoration(
+                    prefixIcon: Icon(Icons.account_circle_outlined),
+                    prefixIconColor: Colors.white54,
                     filled: true,
                     fillColor: Colors.grey,
                     focusColor: Colors.blueGrey,
@@ -46,10 +55,12 @@ class _LoginState extends State<Login> {
                   ),
                 ),
               ),
-              const Padding(
+              Padding(
                 padding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
                 child: TextField(
                   decoration: InputDecoration(
+                    prefixIcon: Icon(Icons.lock_outline),
+                    prefixIconColor: Colors.white54,
                     filled: true,
                     fillColor: Colors.grey,
                     focusColor: Colors.grey,
@@ -99,21 +110,26 @@ class _LoginState extends State<Login> {
                   ),
                 ),
               ),
-              TextButton(
-                onPressed: () {
-                  setState(() {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) => const SignUp(),
+              Padding(
+                padding: const EdgeInsets.only(left: 130),
+                child: Row(
+                  children: [
+                    Text("New to Netflix?",
+                        style: TextStyle(color: Colors.white30)),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => SignUp()));
+                      },
+                      child: Text(
+                        "Sign Up",
+                        style: TextStyle(
+                            color: Colors.white60,
+                            decoration: TextDecoration.underline,
+                            decorationColor: Colors.white),
                       ),
-                    );
-                  });
-                },
-                child: const Text(
-                  "New to Netflix?Sign up now",
-                  style: TextStyle(
-                    color: Colors.white30,
-                  ),
+                    )
+                  ],
                 ),
               ),
               const Padding(
@@ -123,10 +139,19 @@ class _LoginState extends State<Login> {
                   style: TextStyle(color: Colors.white30),
                 ),
               ),
-              TextButton(
-                onPressed: () {},
-                child: const Text("Learn More"),
-              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => LearnMorePage(),
+                      ));
+                },
+                child: Text(
+                  "Learn More",
+                  style: TextStyle(color: Colors.purple.shade400),
+                ),
+              )
             ],
           ),
         ),
