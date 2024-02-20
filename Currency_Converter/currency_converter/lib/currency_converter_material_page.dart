@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class CurrencyConverterMaterialPage extends StatefulWidget {
@@ -18,6 +17,7 @@ class _CurrencyConverterMaterialPageState
       result = double.parse(textEditingController.text) * 80;
     });
   }
+  
 
   @override
   Widget build(BuildContext context) {
@@ -31,13 +31,19 @@ class _CurrencyConverterMaterialPageState
     return Scaffold(
       backgroundColor: Colors.deepPurple[100],
       appBar: AppBar(
+        toolbarHeight: 90,
+        centerTitle: true,
         backgroundColor: Colors.deepPurple[400],
         foregroundColor: Colors.white,
+        shape: RoundedRectangleBorder(
+            borderRadius:
+                BorderRadius.vertical(bottom: Radius.elliptical(50, 50))),
         title: const Text(
           "Currency Convertor",
           style: TextStyle(
-            fontSize: 25,
-            fontWeight: FontWeight.bold,
+            fontSize: 32,
+            fontWeight: FontWeight.w300,
+            // fontStyle: FontStyle.italic,
           ),
         ),
         // centerTitle: true,
