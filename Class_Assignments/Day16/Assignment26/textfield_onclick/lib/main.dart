@@ -53,7 +53,7 @@ class _DreamCompanyState extends State<DreamCompany> {
                   fillColor: Colors.blue.shade100,
                   filled: true,
                   hintText: "Enter Name :",
-                  border: OutlineInputBorder(
+                  border: const OutlineInputBorder(
                     borderRadius: BorderRadius.all(
                       Radius.circular(12),
                     ),
@@ -70,7 +70,7 @@ class _DreamCompanyState extends State<DreamCompany> {
                   fillColor: Colors.blue.shade100,
                   hintText: "Enter CompanyName",
                   filled: true,
-                  border: OutlineInputBorder(
+                  border: const OutlineInputBorder(
                     borderRadius: BorderRadius.all(
                       Radius.circular(12),
                     ),
@@ -87,7 +87,7 @@ class _DreamCompanyState extends State<DreamCompany> {
                   fillColor: Colors.blue.shade100,
                   filled: true,
                   hintText: "Enter Location: ",
-                  border: OutlineInputBorder(
+                  border: const OutlineInputBorder(
                     borderRadius: BorderRadius.all(
                       Radius.circular(12),
                     ),
@@ -104,14 +104,14 @@ class _DreamCompanyState extends State<DreamCompany> {
                     backgroundColor: Colors.blue,
                     foregroundColor: Colors.white),
                 onPressed: func,
-                child: Text("Submit"),
+                child: const Text("Submit"),
               ),
               const SizedBox(
                 height: 20,
               ),
               Card(
                 elevation: 10,
-                shape: RoundedRectangleBorder(
+                shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(
                     Radius.circular(12),
                   ),
@@ -123,7 +123,7 @@ class _DreamCompanyState extends State<DreamCompany> {
                       padding: const EdgeInsets.all(12.0),
                       child: Column(
                         children: [
-                          Text(
+                          const Text(
                             "Dream Company",
                             style: TextStyle(
                                 fontSize: 24, fontWeight: FontWeight.bold),
