@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,10 +14,23 @@ class WidgetLifeCycle extends StatefulWidget {
 }
 
 class _WidgetLifeCycleState extends State<WidgetLifeCycle> {
+  int count = 0;
+  void func() {
+    setState(() {});
+
+    count++;
+  }
+
   @override
   void initState() {
     super.initState;
     debugPrint("In initState");
+  }
+
+  @override
+  void setState(func) {
+    super.setState(func);
+    print("setStateFunctionCalled");
   }
 
   @override
@@ -54,7 +69,7 @@ class _WidgetLifeCycleState extends State<WidgetLifeCycle> {
           children: [
             SizedBox(
               child: Text("j"),
-            )
+            ),
           ],
         ),
       ),
