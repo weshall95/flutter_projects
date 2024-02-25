@@ -66,7 +66,140 @@ class _MyHomePageState extends State<MyHomePage> {
         foregroundColor: Colors.white,
         shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(46))),
-        onPressed: () {},
+        onPressed: () {
+          showModalBottomSheet(
+              context: context,
+              builder: (context) {
+                return Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          "Create Task",
+                          style: GoogleFonts.quicksand(
+                              textStyle: const TextStyle(
+                                  fontSize: 22, fontWeight: FontWeight.w600)),
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        TextField(
+                          decoration: InputDecoration(
+                            // enabledBorder: OutlineInputBorder(),
+                            labelText: 'Title :',
+                            labelStyle: GoogleFonts.quicksand(
+                                textStyle: TextStyle(
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 13,
+                                    color: Color.fromRGBO(0, 139, 148, 1))),
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                  color: Color.fromRGBO(0, 139, 148, 1)),
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(16),
+                              ),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                  color: Color.fromRGBO(0, 139, 148, 1)),
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(16),
+                              ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        TextField(
+                          maxLines: 3,
+                          decoration: InputDecoration(
+                            // enabledBorder: OutlineInputBorder(),
+                            labelText: 'Description :',
+                            labelStyle: GoogleFonts.quicksand(
+                                textStyle: TextStyle(
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 13,
+                                    color: Color.fromRGBO(0, 139, 148, 1))),
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                  color: Color.fromRGBO(0, 139, 148, 1)),
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(16),
+                              ),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                  color: Color.fromRGBO(0, 139, 148, 1)),
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(16),
+                              ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        TextField(
+                          decoration: InputDecoration(
+                            // enabledBorder: OutlineInputBorder(),
+                            labelText: 'Date :',
+                            labelStyle: GoogleFonts.quicksand(
+                                textStyle: TextStyle(
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 13,
+                                    color: Color.fromRGBO(0, 139, 148, 1))),
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                  color: Color.fromRGBO(0, 139, 148, 1)),
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(16),
+                              ),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                  color: Color.fromRGBO(0, 139, 148, 1)),
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(16),
+                              ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            shadowColor: Color.fromRGBO(0, 0, 0, 0.1),
+
+                            minimumSize: Size(300, 50),
+
+                            // fixedSize: Size.fromWidth(300),
+                            shape: RoundedRectangleBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(12))),
+                            backgroundColor: Color.fromRGBO(2, 167, 177, 1),
+                            foregroundColor: Colors.white,
+                          ),
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                          },
+                          child: Text("Submit",
+                              style: GoogleFonts.inter(
+                                textStyle: TextStyle(
+                                    fontSize: 20, fontWeight: FontWeight.w700),
+                              )),
+                        ),
+                      ],
+                    ),
+                  ),
+                );
+              });
+        },
         child: const Icon(
           Icons.add,
           size: 50,
@@ -134,18 +267,22 @@ class _MyHomePageState extends State<MyHomePage> {
                                         fontWeight: FontWeight.w500)),
                               ),
                               const Spacer(),
-                              const Icon(
-                                Icons.edit_outlined,
-                                size: 15,
-                                color: Color.fromRGBO(0, 139, 148, 1),
+                              InkWell(
+                                child: const Icon(
+                                  Icons.edit_outlined,
+                                  size: 15,
+                                  color: Color.fromRGBO(0, 139, 148, 1),
+                                ),
                               ),
                               const SizedBox(
                                 width: 10,
                               ),
-                              const Icon(
-                                Icons.delete_outline_outlined,
-                                size: 15,
-                                color: Color.fromRGBO(0, 139, 148, 1),
+                              InkWell(
+                                child: const Icon(
+                                  Icons.delete_outline_outlined,
+                                  size: 15,
+                                  color: Color.fromRGBO(0, 139, 148, 1),
+                                ),
                               ),
                             ],
                           ),

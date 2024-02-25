@@ -52,10 +52,153 @@ class _ToDoListState extends State<ToDoList> {
   //     return colorList[4];
   //   }
   // }
+  // BottomSheet bottomSheet() {
+  //   showBottomSheet(
+  //       context: context,
+  //       builder: (builder) {
+  //         return Column(
+  //           children: [Text("hello")],
+  //         );
+  //       });
+  //   return BottomSheet(
+  //       onClosing: () {},
+  //       builder: (builder) {
+  //         return Column(
+  //           children: [
+  //             TextField(
+  //               decoration: InputDecoration(hintText: 'Enter Task'),
+  //             ),
+  //           ],
+  //         );
+  //       });
+  // }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Color.fromRGBO(0, 139, 148, 1),
+        foregroundColor: Colors.white,
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(46))),
+        onPressed: () {
+          showModalBottomSheet(
+              context: context,
+              builder: (BuildContext context) {
+                return Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          "Create Task",
+                          style: GoogleFonts.quicksand(
+                              textStyle: const TextStyle(
+                                  fontSize: 22, fontWeight: FontWeight.w600)),
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        TextField(
+                          decoration: InputDecoration(
+                            // enabledBorder: OutlineInputBorder(),
+                            labelText: 'Title :',
+                            labelStyle: GoogleFonts.quicksand(
+                                textStyle: TextStyle(
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 13,
+                                    color: Color.fromRGBO(0, 139, 148, 1))),
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                  color: Color.fromRGBO(0, 139, 148, 1)),
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(16),
+                              ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        TextField(
+                          maxLines: 3,
+                          decoration: InputDecoration(
+                            // enabledBorder: OutlineInputBorder(),
+                            labelText: 'Description :',
+                            labelStyle: GoogleFonts.quicksand(
+                                textStyle: TextStyle(
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 13,
+                                    color: Color.fromRGBO(0, 139, 148, 1))),
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                  color: Color.fromRGBO(0, 139, 148, 1)),
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(16),
+                              ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        TextField(
+                          decoration: InputDecoration(
+                            // enabledBorder: OutlineInputBorder(),
+                            labelText: 'Date :',
+                            labelStyle: GoogleFonts.quicksand(
+                                textStyle: TextStyle(
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 13,
+                                    color: Color.fromRGBO(0, 139, 148, 1))),
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                  color: Color.fromRGBO(0, 139, 148, 1)),
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(16),
+                              ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            shadowColor: Color.fromRGBO(0, 0, 0, 0.1),
+
+                            minimumSize: Size(300, 50),
+
+                            // fixedSize: Size.fromWidth(300),
+                            shape: RoundedRectangleBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(12))),
+                            backgroundColor: Color.fromRGBO(2, 167, 177, 1),
+                            foregroundColor: Colors.white,
+                          ),
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                          },
+                          child: Text("Submit",
+                              style: GoogleFonts.inter(
+                                textStyle: TextStyle(
+                                    fontSize: 20, fontWeight: FontWeight.w700),
+                              )),
+                        ),
+                      ],
+                    ),
+                  ),
+                );
+              });
+        },
+        child: Icon(
+          Icons.add,
+          size: 50,
+        ),
+      ),
       appBar: AppBar(
         title: Text(
           "To-do-list",
@@ -69,9 +212,8 @@ class _ToDoListState extends State<ToDoList> {
         backgroundColor: Color.fromRGBO(2, 167, 177, 1),
         foregroundColor: Colors.white,
       ),
-      body: Container(
-        height: 500,
-        width: 320,
+      body: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
         child: ListView.builder(
           itemCount: colorList.length,
           itemBuilder: (context, index) {
@@ -85,33 +227,40 @@ class _ToDoListState extends State<ToDoList> {
                   children: [
                     Row(
                       children: [
-                        Column(
-                          children: [
-                            Container(
-                              height: 52,
-                              width: 52,
-                              decoration: BoxDecoration(
-                                  shape: BoxShape.circle, color: Colors.white),
-                              child: SizedBox(
-                                height: 23.79,
-                                width: 19.07,
-                                child: Image.network(
-                                    'https://pixsector.com/cache/517d8be6/av5c8336583e291842624.png'),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 4.0),
+                          child: Column(
+                            children: [
+                              Container(
+                                height: 52,
+                                width: 52,
+                                decoration: BoxDecoration(boxShadow: [
+                                  BoxShadow(
+                                      color: Colors.black,
+                                      offset: Offset(1, 1),
+                                      blurRadius: 2)
+                                ], shape: BoxShape.circle, color: Colors.white),
+                                child: SizedBox(
+                                  height: 23.79,
+                                  width: 19.07,
+                                  child: Image.network(
+                                      'https://cdn-icons-png.flaticon.com/512/3135/3135715.png'),
+                                ),
                               ),
-                            ),
 
-                            // Row(
-                            //   children: [
-                            //     Text(
-                            //       "10 July 2023",
-                            //       style: GoogleFonts.quicksand(
-                            //           textStyle: TextStyle(
-                            //               fontWeight: FontWeight.w500,
-                            //               fontSize: 10)),
-                            //     ),
-                            //   ],
-                            // ),
-                          ],
+                              // Row(
+                              //   children: [
+                              //     Text(
+                              //       "10 July 2023",
+                              //       style: GoogleFonts.quicksand(
+                              //           textStyle: TextStyle(
+                              //               fontWeight: FontWeight.w500,
+                              //               fontSize: 10)),
+                              //     ),
+                              //   ],
+                              // ),
+                            ],
+                          ),
                         ),
                         const SizedBox(
                           width: 10,
@@ -164,10 +313,15 @@ class _ToDoListState extends State<ToDoList> {
                           SizedBox(
                             height: 13,
                             width: 13,
-                            child: Icon(
-                              Icons.edit_outlined,
-                              size: 15,
-                              color: Color.fromRGBO(0, 139, 148, 1),
+                            child: InkWell(
+                              onTap: () {
+                                print("Edit");
+                              },
+                              child: Icon(
+                                Icons.edit_outlined,
+                                size: 15,
+                                color: Color.fromRGBO(0, 139, 148, 1),
+                              ),
                             ),
                           ),
                           const SizedBox(
@@ -176,10 +330,15 @@ class _ToDoListState extends State<ToDoList> {
                           SizedBox(
                             height: 13,
                             width: 13,
-                            child: Icon(
-                              Icons.delete_outline_outlined,
-                              size: 15,
-                              color: Color.fromRGBO(0, 139, 148, 1),
+                            child: InkWell(
+                              onTap: () {
+                                print("Delete");
+                              },
+                              child: Icon(
+                                Icons.delete_outline_outlined,
+                                size: 15,
+                                color: Color.fromRGBO(0, 139, 148, 1),
+                              ),
                             ),
                           ),
                         ],
