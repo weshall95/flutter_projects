@@ -23,9 +23,15 @@ class _MyAppState extends State<MyApp> {
         ),
         body: Center(
           child: InkWell(
-            onTap: () {},
-            onDoubleTap: () {},
-            onLongPress: () {},
+            onTap: () {
+              print("Clicked");
+            },
+            onDoubleTap: () {
+              print("Double Clicked");
+            },
+            onLongPress: () {
+              print("Long Pressed");
+            },
             splashColor: Colors.blue.shade300,
             radius: 180,
             hoverColor: Colors.red,

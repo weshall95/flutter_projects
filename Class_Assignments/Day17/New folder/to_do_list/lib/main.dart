@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: ToDoList(),
     );
@@ -26,6 +26,120 @@ class ToDoList extends StatefulWidget {
 }
 
 class _ToDoListState extends State<ToDoList> {
+  void showBottomSheet(){
+    showModalBottomSheet(
+      
+              context: context,
+              builder: (BuildContext context) {
+                return Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          "Create Task",
+                          style: GoogleFonts.quicksand(
+                              textStyle: const TextStyle(
+                                  fontSize: 22, fontWeight: FontWeight.w600)),
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        TextField(
+                          decoration: InputDecoration(
+                            // enabledBorder: OutlineInputBorder(),
+                            labelText: 'Title :',
+                            labelStyle: GoogleFonts.quicksand(
+                                textStyle: const TextStyle(
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 13,
+                                    color: Color.fromRGBO(0, 139, 148, 1))),
+                            enabledBorder: const OutlineInputBorder(
+                              borderSide: BorderSide(
+                                  color: Color.fromRGBO(0, 139, 148, 1)),
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(16),
+                              ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        TextField(
+                          maxLines: 3,
+                          decoration: InputDecoration(
+                            // enabledBorder: OutlineInputBorder(),
+                            labelText: 'Description :',
+                            labelStyle: GoogleFonts.quicksand(
+                                textStyle: const TextStyle(
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 13,
+                                    color: Color.fromRGBO(0, 139, 148, 1))),
+                            enabledBorder: const OutlineInputBorder(
+                              borderSide: BorderSide(
+                                  color: Color.fromRGBO(0, 139, 148, 1)),
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(16),
+                              ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        TextField(
+                          decoration: InputDecoration(
+                            // enabledBorder: OutlineInputBorder(),
+                            labelText: 'Date :',
+                            labelStyle: GoogleFonts.quicksand(
+                                textStyle: const TextStyle(
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 13,
+                                    color: Color.fromRGBO(0, 139, 148, 1))),
+                            enabledBorder: const OutlineInputBorder(
+                              borderSide: BorderSide(
+                                  color: Color.fromRGBO(0, 139, 148, 1)),
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(16),
+                              ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            shadowColor: Color.fromRGBO(0, 0, 0, 0.1),
+
+                            minimumSize: Size(300, 50),
+
+                            // fixedSize: Size.fromWidth(300),
+                            shape: const RoundedRectangleBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(12))),
+                            backgroundColor: Color.fromRGBO(2, 167, 177, 1),
+                            foregroundColor: Colors.white,
+                          ),
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                          },
+                          child: Text("Submit",
+                              style: GoogleFonts.inter(
+                                textStyle: const TextStyle(
+                                    fontSize: 20, fontWeight: FontWeight.w700),
+                              )),
+                        ),
+                      ],
+                    ),
+                  ),
+                );
+              });
+  }
   List colorList = [
     Color.fromRGBO(250, 232, 232, 1),
     Color.fromRGBO(232, 237, 250, 1),
@@ -76,125 +190,20 @@ class _ToDoListState extends State<ToDoList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      // floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
       floatingActionButton: FloatingActionButton(
+        // splashColor: Colors.yellow,
+        // hoverColor: Colors.red,
+        hoverElevation: 4,
         backgroundColor: Color.fromRGBO(0, 139, 148, 1),
         foregroundColor: Colors.white,
-        shape: RoundedRectangleBorder(
+        shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(46))),
         onPressed: () {
-          showModalBottomSheet(
-              context: context,
-              builder: (BuildContext context) {
-                return Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: SingleChildScrollView(
-                    child: Column(
-                      children: [
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        Text(
-                          "Create Task",
-                          style: GoogleFonts.quicksand(
-                              textStyle: const TextStyle(
-                                  fontSize: 22, fontWeight: FontWeight.w600)),
-                        ),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        TextField(
-                          decoration: InputDecoration(
-                            // enabledBorder: OutlineInputBorder(),
-                            labelText: 'Title :',
-                            labelStyle: GoogleFonts.quicksand(
-                                textStyle: TextStyle(
-                                    fontWeight: FontWeight.w400,
-                                    fontSize: 13,
-                                    color: Color.fromRGBO(0, 139, 148, 1))),
-                            enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                  color: Color.fromRGBO(0, 139, 148, 1)),
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(16),
-                              ),
-                            ),
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        TextField(
-                          maxLines: 3,
-                          decoration: InputDecoration(
-                            // enabledBorder: OutlineInputBorder(),
-                            labelText: 'Description :',
-                            labelStyle: GoogleFonts.quicksand(
-                                textStyle: TextStyle(
-                                    fontWeight: FontWeight.w400,
-                                    fontSize: 13,
-                                    color: Color.fromRGBO(0, 139, 148, 1))),
-                            enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                  color: Color.fromRGBO(0, 139, 148, 1)),
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(16),
-                              ),
-                            ),
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        TextField(
-                          decoration: InputDecoration(
-                            // enabledBorder: OutlineInputBorder(),
-                            labelText: 'Date :',
-                            labelStyle: GoogleFonts.quicksand(
-                                textStyle: TextStyle(
-                                    fontWeight: FontWeight.w400,
-                                    fontSize: 13,
-                                    color: Color.fromRGBO(0, 139, 148, 1))),
-                            enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                  color: Color.fromRGBO(0, 139, 148, 1)),
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(16),
-                              ),
-                            ),
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            shadowColor: Color.fromRGBO(0, 0, 0, 0.1),
-
-                            minimumSize: Size(300, 50),
-
-                            // fixedSize: Size.fromWidth(300),
-                            shape: RoundedRectangleBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(12))),
-                            backgroundColor: Color.fromRGBO(2, 167, 177, 1),
-                            foregroundColor: Colors.white,
-                          ),
-                          onPressed: () {
-                            Navigator.of(context).pop();
-                          },
-                          child: Text("Submit",
-                              style: GoogleFonts.inter(
-                                textStyle: TextStyle(
-                                    fontSize: 20, fontWeight: FontWeight.w700),
-                              )),
-                        ),
-                      ],
-                    ),
-                  ),
-                );
-              });
+          
         },
-        child: Icon(
+        child: const Icon(
           Icons.add,
           size: 50,
         ),
@@ -213,7 +222,9 @@ class _ToDoListState extends State<ToDoList> {
         foregroundColor: Colors.white,
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+
+        padding: const EdgeInsets.only(left : 20, right: 20),
+        
         child: ListView.builder(
           itemCount: colorList.length,
           itemBuilder: (context, index) {
@@ -234,7 +245,7 @@ class _ToDoListState extends State<ToDoList> {
                               Container(
                                 height: 52,
                                 width: 52,
-                                decoration: BoxDecoration(boxShadow: [
+                                decoration: const BoxDecoration(boxShadow: [
                                   BoxShadow(
                                       color: Colors.black,
                                       offset: Offset(1, 1),
@@ -267,7 +278,7 @@ class _ToDoListState extends State<ToDoList> {
                         ),
                         Column(
                           children: [
-                            SizedBox(
+                            const SizedBox(
                               height: 10,
                             ),
                             SizedBox(
@@ -276,7 +287,7 @@ class _ToDoListState extends State<ToDoList> {
                               child: Text(
                                 "Lorem Ipsum is simply setting industry",
                                 style: GoogleFonts.quicksand(
-                                    textStyle: TextStyle(
+                                    textStyle: const TextStyle(
                                         fontWeight: FontWeight.w600,
                                         fontSize: 12)),
                               ),
@@ -290,7 +301,7 @@ class _ToDoListState extends State<ToDoList> {
                               child: Text(
                                 "Simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
                                 style: GoogleFonts.quicksand(
-                                    textStyle: TextStyle(
+                                    textStyle: const TextStyle(
                                         fontSize: 10,
                                         fontWeight: FontWeight.w500)),
                               ),
@@ -306,10 +317,10 @@ class _ToDoListState extends State<ToDoList> {
                           Text(
                             "10 July 2023",
                             style: GoogleFonts.quicksand(
-                                textStyle: TextStyle(
+                                textStyle: const TextStyle(
                                     fontWeight: FontWeight.w500, fontSize: 10)),
                           ),
-                          Spacer(),
+                          const Spacer(),
                           SizedBox(
                             height: 13,
                             width: 13,
@@ -317,7 +328,7 @@ class _ToDoListState extends State<ToDoList> {
                               onTap: () {
                                 print("Edit");
                               },
-                              child: Icon(
+                              child: const Icon(
                                 Icons.edit_outlined,
                                 size: 15,
                                 color: Color.fromRGBO(0, 139, 148, 1),
@@ -332,9 +343,12 @@ class _ToDoListState extends State<ToDoList> {
                             width: 13,
                             child: InkWell(
                               onTap: () {
+                                setState(() {
+                                  
+                                });
                                 print("Delete");
                               },
-                              child: Icon(
+                              child: const Icon(
                                 Icons.delete_outline_outlined,
                                 size: 15,
                                 color: Color.fromRGBO(0, 139, 148, 1),
