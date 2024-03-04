@@ -13,11 +13,11 @@ class _ContainerDemo4State extends State<ContainerDemo4> {
     return Scaffold(
       body: Center(
         child: Container(
-          height: 100,
-          width: 100,
-          padding: const EdgeInsets.all(10),
+          height: 150,
+          width: 300,
+          padding: const EdgeInsets.all(15),
           decoration: const BoxDecoration(
-            color: Colors.blue,
+            color: Color.fromARGB(255, 200, 136, 211),
             borderRadius: BorderRadius.only(
               topLeft: Radius.circular(12),
               bottomRight: Radius.circular(12),

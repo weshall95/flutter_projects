@@ -15,8 +15,9 @@ class _ContainerDemo2State extends State<ContainerDemo2> {
         child: Container(
           height: 100,
           width: 100,
-          padding: EdgeInsets.all(8),
+          padding: const EdgeInsets.all(8),
           decoration: const BoxDecoration(
+              color: Colors.blue,
               border: Border(left: BorderSide(width: 5, color: Colors.red))),
           child: const Text("Container"),
         ),

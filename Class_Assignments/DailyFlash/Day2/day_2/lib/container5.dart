@@ -18,13 +18,15 @@ class _ContainerDemo5State extends State<ContainerDemo5> {
         child: InkWell(
           onTap: () {
             setState(() {
-              text = 'Container Tapped';
-              tap = true;
+              // text = 'Container Tapped';
+              tap = !tap;
+              tap ? text = "Container Tapped" : text = "Click Me!";
             });
           },
           child: Container(
             height: 100,
             width: 100,
+            padding: const EdgeInsets.all(14),
             decoration: BoxDecoration(color: tap ? Colors.blue : Colors.red),
             child: Center(child: Text(text)),
           ),

@@ -16,9 +16,9 @@ class _ContainerDemo3State extends State<ContainerDemo3> {
           height: 100,
           width: 100,
           decoration: BoxDecoration(
-              color: Colors.blue,
+              color: Colors.purple.shade100,
               borderRadius: BorderRadius.only(topRight: Radius.circular(16)),
-              border: Border.all(color: Colors.red)),
+              border: Border.all(color: Colors.purple.shade900)),
         ),
       ),
     );
