@@ -13,13 +13,28 @@ class _Assignment5State extends State<Assignment5> {
     return Scaffold(
       body: Center(
         child: Container(
-          transform: Matrix4(5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5),
           width: 250,
           height: 250,
           decoration: BoxDecoration(
             border: Border.all(),
             color: Colors.blue.shade100,
             shape: BoxShape.circle,
+          ),
+          child: const Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Text("Red"),
+              // const SizedBox(
+              //   width: 90,
+              // ),
+              Column(
+                children: [Text('|\n|\n|\n|\n|\n|\n|\n|\n|\n|\n|\n|')],
+              ),
+              // const SizedBox(
+              //   width: 20,
+              // ),
+              Text("Blue")
+            ],
           ),
         ),
       ),
