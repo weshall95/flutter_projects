@@ -263,19 +263,20 @@ class _ToDoAppState extends State<ToDoApp> {
     showBottomSheet(true, toDoModelObj);
   }
 
-  @override
-  void dispose() {
-    super.dispose();
-    titleController.dispose();
-    dateController.dispose();
-    descriptionController.dispose();
-  }
+  // @override
+  // void dispose() {
+  //   super.dispose();
+  //   titleController.dispose();
+  //   dateController.dispose();
+  //   descriptionController.dispose();
+  // }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: true,
       appBar: AppBar(
+        foregroundColor: Colors.white,
         backgroundColor: const Color.fromRGBO(2, 167, 177, 1),
         centerTitle: true,
         title: Text(
