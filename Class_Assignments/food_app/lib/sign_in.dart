@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:food_app/sign_up.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'home_page.dart';
+
 class SignIn extends StatefulWidget {
   const SignIn({super.key});
 
@@ -125,7 +127,6 @@ class _SignInState extends State<SignIn> {
                   ),
                 ),
                 validator: (value) {
-                  print("In PASSWORD VALIDATOR");
                   if (value == null || value.isEmpty) {
                     return "Please enter password";
                   } else {
@@ -163,11 +164,13 @@ class _SignInState extends State<SignIn> {
                   onPressed: () {
                     bool loginValidated = _formKey.currentState!.validate();
                     if (loginValidated) {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(
-                          content: Text("Login Successful"),
-                        ),
-                      );
+                      // ScaffoldMessenger.of(context).showSnackBar(
+                      //   const SnackBar(
+                      //     content: Text("Login Successful"),
+                      //   ),
+                      // );
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => HomePage()));
                     } else {
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(

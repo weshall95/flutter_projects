@@ -33,6 +33,8 @@ dependencies:
   google_fonts: ^6.2.1
   sqflite: any
   path: any
+  # google_fonts: ^6.2.1
+  flutter_slidable: ^3.0.1
 
 
 
